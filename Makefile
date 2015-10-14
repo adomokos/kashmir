@@ -9,3 +9,4 @@ PGPASSWORD=password1
 build-db:
 	dropdb --if-exists --username $(USER) $(DBNAME) -h $(HOST) -p $(PORT)
 	createdb --username $(USER) $(DBNAME) -h $(HOST) -p $(PORT)
+	lein clj-sql-up migrate
