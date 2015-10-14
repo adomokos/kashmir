@@ -10,3 +10,6 @@
 
 (defqueries "kashmir/sql/data.sql"
             {:connection db-spec})
+
+(defn find-member [id]
+  (find-member-by-id {:id id}))
