@@ -5,7 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
-                 [yesql "0.5.1"]]
+                 [yesql "0.5.1"]
+                 [cheshire "5.5.0"]]
   :main ^:skip-aot kashmir.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
