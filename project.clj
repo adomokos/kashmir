@@ -6,10 +6,16 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [yesql "0.5.1"]
+                 [compojure "1.4.0"]
+                 [ring/ring-defaults "0.1.5"]
                  [cheshire "5.5.0"]]
+  :clj-sql-up {:database "jdbc:postgresql://kashmir_user:password@localhost:5432/kashmir"
+               :deps [[org.postgresql/postgresql "9.4-1201-jdbc41"]]}
+  :ring {:handler kashmir.handler/app}
+  :plugins  [[clj-sql-up "0.3.7"]
+             [lein-ring "0.9.7"]]
   :main ^:skip-aot kashmir.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}}
-  :clj-sql-up {:database "jdbc:postgresql://kashmir_user:password@localhost:5432/kashmir"
-               :deps [[org.postgresql/postgresql "9.4-1201-jdbc4"]]}
-  :plugins  [[clj-sql-up "0.3.7"]])
+  :profiles {:uberjar {:aot :all}
+             :dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                                  [ring-mock "0.1.5"]]}})
