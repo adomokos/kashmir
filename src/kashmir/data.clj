@@ -14,12 +14,13 @@
 (defn find-member [id]
   (find-member-by-id {:id id}))
 
+(defn find-band-by-name [name]
+  (first (find-band-by-name-raw {:name name})))
+
 (defn create-member!
   ([member band-name]
     (jdbc/with-db-transaction [tx db-spec]
       (create-member! member band-name tx)))
   ([member band-name tx]
-    (let [band-id (-> (find-band-by-name {:name band-name})
-                       first
-                       :id)]
+    (let [band-id (:id (find-band-by-name band-name))]
         (create-member-raw! (conj member {:band_id band-id}) {:connection tx}))))

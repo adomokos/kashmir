@@ -9,7 +9,7 @@ WHERE id = :id
 SELECT count(*) AS count
 FROM members
 
--- name: find-band-by-name
+-- name: find-band-by-name-raw
 -- Finds a band record based on the provided name
 SELECT *
 FROM bands
