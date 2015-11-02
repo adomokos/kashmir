@@ -3,8 +3,8 @@
             [clojure.java.jdbc :as jdbc]))
 
 (def db-spec {:classname "net.sf.log4jdbc.DriverSpy"
-              :subprotocol "log4jdbc:postgresql"
-              ;:subprotocol "postgresql"
+              ;:subprotocol "log4jdbc:postgresql"
+              :subprotocol "postgresql"
               :subname "//localhost:5432/kashmir"
               :user "kashmir_user"
               :password "password1"})
